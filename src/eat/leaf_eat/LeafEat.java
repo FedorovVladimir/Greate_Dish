@@ -4,7 +4,7 @@ import eat.Eat;
 
 import java.util.List;
 
-public class LeafEat extends Eat {
+public abstract class LeafEat extends Eat {
     LeafEat(String name, int level) {
         super(name, level);
     }
@@ -28,4 +28,6 @@ public class LeafEat extends Eat {
     public void remove(Eat eat) {
 
     }
+
+    public abstract double getPrice();
 }

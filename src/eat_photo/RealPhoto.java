@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class RealPhoto implements Photo {
+public class RealPhoto implements Photo, FlyWeightRealPhoto {
     private Image image = null;
     private String pathPhoto;
 
@@ -19,7 +19,8 @@ public class RealPhoto implements Photo {
     public Image getPhoto() {
         if (image == null) {
             try {
-                image = ImageIO.read(new File(pathPhoto));
+                File file = new File(pathPhoto);
+                image = ImageIO.read(file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -32,5 +33,10 @@ public class RealPhoto implements Photo {
             image = null;
             this.pathPhoto = pathPhoto;
         }
+    }
+
+    @Override
+    public String getPath() {
+        return pathPhoto;
     }
 }

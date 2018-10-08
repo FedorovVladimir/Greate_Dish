@@ -14,7 +14,7 @@ public class ClosedPhoto implements Photo {
 
     static ClosedPhoto getInstance() {
         if (closedPhoto == null) {
-            RealPhoto closedDishPhoto = new RealPhoto("Closed_Dish");
+            RealPhoto closedDishPhoto = RealPhotoAdapter.createRealPhoto("Closed_Dish");
             closedPhoto = new ClosedPhoto(closedDishPhoto);
         }
         return closedPhoto;
